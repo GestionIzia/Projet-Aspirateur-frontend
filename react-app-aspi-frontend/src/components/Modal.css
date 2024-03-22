@@ -1,0 +1,119 @@
+.card-modal-wrapper {
+    position:fixed;
+    top: 8px;
+    right: 0;
+    /*transform: translate(-400px, -5%);*/
+    /*background: #F9CF51;*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin: 10px 0px 10px;
+    transition: all 0.8s ease-out;
+    width: 80%;
+
+    border-radius: 10px;
+    z-index: 35;
+    display: none;
+    border: 1px solid #ccc; 
+
+}
+
+.card-modal-margin {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .card-modal-defileur-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 15px;
+  }
+  
+  .card-modal-defileur-img {
+    width: 50px; 
+    height: auto;
+    cursor: pointer;
+  }
+.card-modal-header {
+    background: #27357C;
+    /*background: #F9CF51;*/
+    height: 40px;
+    line-height: 40px;
+    padding: 5px, 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-modal-header h2 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+.card-modal-body {
+    padding: 5px;
+    height:100%;
+}
+.card-modal-footer {
+    background: #27357C;
+    height: 40px;
+    padding: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: center;
+}
+
+.card-close-modal-btn {
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-size: 30px;
+    margin: 0;
+}
+
+.card-close-modal-btn:hover {
+    color: black;
+}
+
+.card-offer-description {
+    width: 100%;
+    height: 800px;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none; /* Désactive toutes les interactions */
+
+
+}
+.card-offer-description-wrapper {
+    pointer-events: auto; /* Réactiver les interactions sur ce conteneur parent */
+    overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+}
+.card-modal-footer{ 
+    text-align: center; 
+    
+}
+.card-modal-offer-btn{
+    
+    text-align: center;
+    padding: 3px;
+    background-color: #f96a51;
+    font-size: large;
+    font-weight: bold;
+    color: #FFF;
+
+    margin: 0 15px 7px 0; 
+}
+
+
+@media screen and (max-width: 1340px) {
+    .card-modal-wrapper {
+    width: 75%;
+    }
+    .card-offer-description {
+        width: 100%;
+        height: 430px;
+    }
+
+}
