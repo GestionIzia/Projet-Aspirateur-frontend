@@ -10,11 +10,11 @@ import horloge from '../assets/horloge.png'
 import lieu from '../assets/lieu.png'
 import './Card.css'
 
-function Card({ openModal, cardInfo }) {
+function Card({ openModal, cardInfo, isSelected }) {
   const [isLiked, setIsLiked] = useState(false);
   const [showName, setShowName] = useState(false);
 
-  const { JobTitle, CompanieName, Location, Date, ContractType, UrlOffer } = cardInfo;
+  const { JobTitle, CompanieName, Location, Date, ContractType, UrlOffer, HtmlContent } = cardInfo;
 
   const toggleLike = () => {
     setIsLiked(prevState => !prevState);
@@ -34,7 +34,7 @@ function Card({ openModal, cardInfo }) {
 
   return (
     
-    <div className='card-izia' onClick={openModal}>
+    <div className={`card-izia ${isSelected ? 'selected' : ''}`} onClick={() => openModal(cardInfo)}>
       <div className='card-contener-izia'></div>
       <div className='card-header-izia'>
         <button className='btn-close-izia'>
