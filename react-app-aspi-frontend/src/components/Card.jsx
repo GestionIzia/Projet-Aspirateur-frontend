@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import close from '../assets/fermer.png';
 import wttj from '../assets/welcome-to-the-jungle-squarelogo.png'
+import linkedin from '../assets/LinkedIn_logo_initials.png'
 import unlike from '../assets/contour-en-forme-de-coeur.png'
 import liked from '../assets/silhouette-de-forme-simple-de-coeur.png'
 import push from'../assets/verifier-push.png'
@@ -14,7 +15,7 @@ function Card({ openModal, cardInfo, isSelected }) {
   const [isLiked, setIsLiked] = useState(false);
   const [showName, setShowName] = useState(false);
 
-  const { JobTitle, CompanieName, Location, Date, ContractType, UrlOffer, HtmlContent } = cardInfo;
+  const {WebSite, JobTitle, CompanieName, Location, Date, ContractType, UrlOffer, HtmlContent } = cardInfo;
 
   const toggleLike = () => {
     setIsLiked(prevState => !prevState);
@@ -32,6 +33,16 @@ function Card({ openModal, cardInfo, isSelected }) {
     setShowName(false);
   };
 
+  const getLogo = () => {
+    if (WebSite === "WTTJ") {
+      return wttj;
+    } else if (WebSite === "Linkedin") {
+      return linkedin;
+    } else {
+      return ''; // Retourner une chaîne vide si le site Web n'est pas reconnu
+    }
+  }
+
   return (
     
     <div className={`card-izia ${isSelected ? 'selected' : ''}`} onClick={() => openModal(cardInfo)}>
@@ -47,7 +58,7 @@ function Card({ openModal, cardInfo, isSelected }) {
             <h1 className='h1-izia'>{JobTitle}</h1> 
           </div>
           <div className='card-companie-logo-izia'>
-            <img className='card-companie-logo-img-izia' src={wttj} alt="Company Logo"/>
+            <img className='card-companie-logo-img-izia' src={getLogo()} alt="Company Logo"/>
           </div>
         </div>
         <div className='card-body-izia'>
