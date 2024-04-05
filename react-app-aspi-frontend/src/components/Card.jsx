@@ -48,7 +48,7 @@ function Card({ openModal, cardInfo, isSelected }) {
 
   return (
     
-    <div className={`card-izia ${isSelected ? 'selected' : ''}`} onClick={() => openModal(cardInfo)}>
+  <div className={`card-izia ${isSelected ? 'selected' : ''}`} onClick={() => openModal(UrlOffer)}>
       <div className='card-contener-izia'></div>
       <div className='card-header-izia'>
         <button className='btn-close-izia'>
