@@ -30,9 +30,13 @@ function App() {
         // Fetch LinkedIn job offers
         const linkedInResponse = await axios.get(`${API_BASE_URL}/scrape-linkedin`);
         const linkedInJobOffers = linkedInResponse.data.slice(0, 12);
+        
+        // Fetch SG job offers
+        const sgResponse = await axios.get(`${API_BASE_URL}/scrape-sg`);
+        const sgJobOffers = sgResponse.data.slice(0, 12);
 
-        // Combine WTTJ and LinkedIn job offers
-        const combinedJobOffers = [...wttjJobOffers, ...linkedInJobOffers];
+        // Combine WTTJ, LinkedIn, and SG job offers
+        const combinedJobOffers = [...wttjJobOffers, ...linkedInJobOffers, ...sgJobOffers];
 
         // Update cardInfos state with combined job offers
         setCardInfos(combinedJobOffers);

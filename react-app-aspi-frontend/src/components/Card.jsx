@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import close from '../assets/fermer.png';
 import wttj from '../assets/welcome-to-the-jungle-squarelogo.png'
 import linkedin from '../assets/LinkedIn_logo_initials.png'
+import sg from '../assets/SG_Logo.png'
 import unlike from '../assets/contour-en-forme-de-coeur.png'
 import liked from '../assets/silhouette-de-forme-simple-de-coeur.png'
 import push from'../assets/verifier-push.png'
@@ -38,6 +39,8 @@ function Card({ openModal, cardInfo, isSelected }) {
       return wttj;
     } else if (WebSite === "Linkedin") {
       return linkedin;
+    } else if (WebSite === "SG") {
+      return sg;
     } else {
       return ''; // Retourner une chaîne vide si le site Web n'est pas reconnu
     }

@@ -87,6 +87,8 @@
 
 }
 .card-offer-description-wrapper {
+    margin: 50px;
+    text-align: center;
     pointer-events: auto; /* Réactiver les interactions sur ce conteneur parent */
     overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
 }
@@ -107,9 +109,10 @@
 }
 
 
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1400px) {
     .card-modal-wrapper {
     width: 75%;
+    height: 100%;
     }
     .card-offer-description {
         width: 100%;

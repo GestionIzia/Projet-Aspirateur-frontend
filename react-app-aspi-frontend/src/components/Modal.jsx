@@ -1,10 +1,20 @@
-// Modal.jsx
 import React from 'react';
 import './Modal.css';
 import defileur from '../assets/gauche-droite.png';
 
 const Modal = ({ show, closeModal, cardInfo }) => {
   const { CompanieName, JobTitle, ContractType, Location, Date, UrlOffer, HtmlContent } = cardInfo;
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Text copied to clipboard:', text);
+      alert('Lien copié dans le presse-papiers !');
+    } catch (error) {
+      console.error('Error copying text to clipboard:', error);
+      alert('Une erreur est survenue lors de la copie du lien dans le presse-papiers.');
+    }
+  };
 
   return (
     <div>
@@ -24,9 +34,7 @@ const Modal = ({ show, closeModal, cardInfo }) => {
           </div>
         </div>
         <div className='card-modal-footer'>
-          <form action={UrlOffer} method="get" target="_blank">
-            <button className='card-modal-offer-btn' type="submit">Accéder à l'offre</button>
-          </form>
+            <button className='card-modal-offer-btn' onClick={() => copyToClipboard(UrlOffer)}>Copier le lien de l'offre</button>
         </div>
       </div>
     </div>
