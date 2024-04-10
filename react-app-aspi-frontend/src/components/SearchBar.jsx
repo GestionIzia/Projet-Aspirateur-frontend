@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import "./SearchBar.css"
-const SearchBar = ({ onSearch }) => {
+import "./SearchBar.css";
+
+const SearchBar = ({ onSearch, onOpenFilters }) => {
   const [query, setQuery] = useState('');
 
   const handleChange = (event) => {
@@ -16,21 +17,19 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div className='searchbar'>
       <div>
-
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
+        <form id='form-search'onSubmit={handleSubmit}>
           <input className='search-input'
             type="text"
             value={query}
             onChange={handleChange}
-            placeholder="Rechercher par Job, mot-clés ou entreprises"
+            placeholder="Rechercher par job, mot-clés ou entreprises"
           />
           <button className='btn-search' type="submit">Rechercher</button>
         </form>
       </div>
-      <div>
-
+      <div className='btn-container'> 
+        {/* Passer la fonction onOpenFilters au onClick du bouton */}
+        <button className='btn-filters'>Tous les filtres</button>
       </div>
     </div>
   );

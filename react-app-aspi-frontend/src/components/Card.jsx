@@ -16,7 +16,7 @@ function Card({ openModal, cardInfo, isSelected }) {
   const [isLiked, setIsLiked] = useState(false);
   const [showName, setShowName] = useState(false);
 
-  const {WebSite, JobTitle, CompanieName, Location, Date, ContractType, UrlOffer, HtmlContent } = cardInfo;
+  const {WebSite, JobTitle, CompanieName, Location, Date, ContractType, UrlOffer, HtmlContent, Type } = cardInfo;
 
   const toggleLike = () => {
     setIsLiked(prevState => !prevState);

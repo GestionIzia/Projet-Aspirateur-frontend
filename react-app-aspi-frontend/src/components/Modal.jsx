@@ -14,6 +14,7 @@ const Modal = ({ show, closeModal, cardInfo }) => {
       console.error('Error copying text to clipboard:', error);
       alert('Une erreur est survenue lors de la copie du lien dans le presse-papiers.');
     }
+    
   };
 
   return (
@@ -25,7 +26,7 @@ const Modal = ({ show, closeModal, cardInfo }) => {
           </button>
         </div>
         <div className='card-modal-header'>
-          <h2>Descriptif de l'offre</h2>
+          <h2>Descriptif de l'offre : {JobTitle}</h2>
           <span className='card-close-modal-btn' onClick={closeModal}>X</span>
         </div>
         <div className='card-modal-body'>
