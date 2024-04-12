@@ -45,6 +45,7 @@ function App() {
    useEffect(() => {
         const handleScroll = () => {
             const modal = document.querySelector('.card-modal-wrapper');
+            const description = document.querySelector('.card-offer-description');
             const scrollPosition = window.scrollY;
     
             // Hauteur de décalage désirée pour le modal lorsque le scroll est en haut
@@ -54,6 +55,7 @@ function App() {
                 if (scrollPosition <= 0) {
                     // Ajustez la position du modal
                     modal.style.top = desiredOffset + 'px';
+                
                 } else {
                     // Réinitialisez la position du modal
                     modal.style.top = '30px'; // Réinitialisez la position pour qu'elle soit gérée par les styles CSS par défaut ou par d'autres règles CSS
@@ -67,19 +69,26 @@ function App() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
     useEffect(() => {
         const fetchJobOffers = async () => {
             try {
                 const wttjResponse = await axios.get(`${API_BASE_URL}/scrape-wttj`);
-                const wttjJobOffers = wttjResponse.data.slice(0, 30);
+                const wttjJobOffers = wttjResponse.data.slice(0, 50);
 
                 const linkedInResponse = await axios.get(`${API_BASE_URL}/scrape-linkedin`);
-                const linkedInJobOffers = linkedInResponse.data.slice(0, 30);
+                const linkedInJobOffers = linkedInResponse.data.slice(0, 50);
 
                 const sgResponse = await axios.get(`${API_BASE_URL}/scrape-sg`);
-                const sgJobOffers = sgResponse.data.slice(0, 30);
+                const sgJobOffers = sgResponse.data.slice(0, 50);
 
-                const combinedJobOffers = [...wttjJobOffers, ...linkedInJobOffers, ...sgJobOffers];
+                const bpceResponse = await axios.get(`${API_BASE_URL}/scrape-bpce`);
+                const bpceJobOffers = bpceResponse.data.slice(0, 50);
+
+                const hwResponse = await axios.get(`${API_BASE_URL}/scrape-hw`);
+                const hwJobOffers = hwResponse.data.slice(0, 50);
+
+                const combinedJobOffers = [...wttjJobOffers, ...linkedInJobOffers, ...sgJobOffers, ...bpceJobOffers, ...hwJobOffers];
 
                 // Trier les cartes de la plus récente à la plus ancienne
                 const sortedOffers = sortCardsByDate(combinedJobOffers);
@@ -107,7 +116,7 @@ function App() {
         const isSelectedCareerCenter = selectedFilters.includes('careerscenter');
 
         return offers.filter(offer => {
-            const { Location, ContractType, Date, CompanieName, JobTitle, WebSite, Type } = offer;
+            const { Location, ContractType, Date, CompanieName, JobTitle, WebSite, Type, HtmlContent } = offer;
 
             if (isSelectedJobboard && isSelectedCareerCenter) {
                 return true;
@@ -121,13 +130,16 @@ function App() {
                 return true;
             }
 
-            return keywords.every(keyword =>
+            const contentKeywords = HtmlContent?.toLowerCase().split(/\s+/) ?? [];
+
+            return keywords.some(keyword =>
                 Location.toLowerCase().includes(keyword) ||
                 ContractType.toLowerCase().includes(keyword) ||
                 Date.toLowerCase().includes(keyword) ||
                 CompanieName.toLowerCase().includes(keyword) ||
                 JobTitle.toLowerCase().includes(keyword) ||
-                WebSite.toLowerCase().includes(keyword)
+                WebSite.toLowerCase().includes(keyword) ||
+                contentKeywords.includes(keyword)
             );
         });
     };

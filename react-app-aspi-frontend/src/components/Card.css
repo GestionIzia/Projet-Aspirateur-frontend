@@ -64,7 +64,9 @@ button {
   }
 
   .card-companie-logo-izia, .card-companie-logo-img-izia{
-    width: 50px;
+    width: 35px;
+    top : 10px
+    
   }
   
   .card-companie-izia {

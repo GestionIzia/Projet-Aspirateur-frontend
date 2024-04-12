@@ -3,6 +3,8 @@ import close from '../assets/fermer.png';
 import wttj from '../assets/welcome-to-the-jungle-squarelogo.png'
 import linkedin from '../assets/LinkedIn_logo_initials.png'
 import sg from '../assets/SG_Logo.png'
+import bpce from '../assets/bpce-logo.jpg'
+import hw from '../assets/HW-logo.jpg'
 import unlike from '../assets/contour-en-forme-de-coeur.png'
 import liked from '../assets/silhouette-de-forme-simple-de-coeur.png'
 import push from'../assets/verifier-push.png'
@@ -41,6 +43,10 @@ function Card({ openModal, cardInfo, isSelected }) {
       return linkedin;
     } else if (WebSite === "SG") {
       return sg;
+    } else if (WebSite === "BPCE") {
+      return bpce;
+    } else if (WebSite === "HW") {
+      return hw;
     } else {
       return ''; // Retourner une chaîne vide si le site Web n'est pas reconnu
     }
@@ -94,7 +100,7 @@ function Card({ openModal, cardInfo, isSelected }) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         />
-        {showName && <span className="Name-tooltip">Virginie</span>}
+        {showName && <span className="Name-tooltip"></span>}
       </div>
     </div>
   );

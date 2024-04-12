@@ -21,9 +21,9 @@ const Modal = ({ show, closeModal, cardInfo }) => {
     <div>
       <div className='card-modal-wrapper' style={{ display: show ? 'block' : 'none', opacity: show ? '1' : '0' }}>
         <div className='card-modal-margin'>
-          <button className='card-modal-defileur-btn' onClick={closeModal}>
+          {/*<button className='card-modal-defileur-btn' onClick={closeModal}>
             <img className='card-modal-defileur-img' src={defileur} alt="Défileur"/>
-          </button>
+          </button>*/}
         </div>
         <div className='card-modal-header'>
           <h2>Descriptif de l'offre : {JobTitle}</h2>
