@@ -1,0 +1,76 @@
+.filter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour griser le reste de la page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assure que le modal est au-dessus de tous les autres éléments */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 400px; /* Largeur du modal */
+    max-width: 90%; /* Largeur maximale du modal */
+    max-height: 80%; /* Hauteur maximale du modal */
+    overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    position: relative; /* Ajoutez ceci */
+    top: 20%; /* Ajoutez ceci */
+    left: 50%; /* Ajoutez ceci */
+    transform: translate(-50%, -50%); /* Ajoutez ceci pour centrer le modal */
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+   
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #27357C;
+}
+
+.type-choice {
+    margin-bottom: 20px;
+}
+
+.type-choice h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #F9CF51;
+    margin-left: 30px;
+}
+
+.type-choice div {
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.type-choice input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.results {
+    background-color: #27357C;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.results:hover {
+    background-color: #F5A144; /* Couleur au survol */
+}

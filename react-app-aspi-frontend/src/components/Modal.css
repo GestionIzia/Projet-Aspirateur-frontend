@@ -1,13 +1,14 @@
 .card-modal-wrapper {
+
     position:fixed;
-    top: 8px;
+
     right: 0;
     /*transform: translate(-400px, -5%);*/
     /*background: #F9CF51;*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     margin: 10px 0px 10px;
     transition: all 0.8s ease-out;
-    width: 80%;
+    width: 83%;
 
     border-radius: 10px;
     z-index: 35;
@@ -87,7 +88,7 @@
 
 }
 .card-offer-description-wrapper {
-    margin: 50px;
+    margin: 0px; /*A voir*/
     text-align: center;
     pointer-events: auto; /* Réactiver les interactions sur ce conteneur parent */
     overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
@@ -97,26 +98,26 @@
     
 }
 .card-modal-offer-btn{
-    
     text-align: center;
+    border-radius: 2px;
     padding: 3px;
-    background-color: #f96a51;
+    background-color: #F9CF51;
+    color: #27357C;
     font-size: large;
     font-weight: bold;
-    color: #FFF;
 
-    margin: 0 15px 7px 0; 
+    margin: 5px 15px 7px 0; 
 }
 
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1430px) {
     .card-modal-wrapper {
     width: 75%;
-    height: 700px;
+
     }
     .card-offer-description {
         width: 100%;
-        height: 430px;
+        height: 400px;
     }
 
 }

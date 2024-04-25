@@ -2,25 +2,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Afficher les éléments en colonne */
   margin-top: 10px;
-  font-size: 24px; /* Augmenter la taille de la police */
+  font-size: 24px;
   margin-bottom: 15px;
 }
 
 .search-input {
-  width: 800px; /* Réduire la largeur de l'input */
-  height: 60px;
-  border: 2px solid #27357C; /* Modifier les bordures */
+  width: 800px;
+  height: 56px;
+  border: 2px solid #27357C;
   color: #27357C;
-  font-size: 24px; /* Ajuster la taille de la police */
-  margin-right: 10px; /* Ajouter un espacement entre l'input et le bouton */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column; /* Afficher les boutons en colonne */
+  align-items: center;
+}
+
+.btn-search,
+.btn-filters {
+  width: 200px;
+  height: 60px;
+  margin-left: 10px;
+  color: #FFFFFF;
+  border: 2px solid #27357C;
+  font-size: 24px;
 }
 
 .btn-search {
-  width: 200px;
-  height: 60px;
-  color: #FFFFFF;
-  border: 2px solid #27357C; /* Modifier les bordures */
-  background-color: #F5A144; /* Modifier la couleur de fond */
-  font-size: 24px; /* Ajuster la taille de la police */
+  background-color: #F5A144;
+  margin-bottom: 10px; /* Ajouter de l'espace entre les boutons */
+}
+
+.btn-filters {
+  position: relative;
+  left: 403px;
+  background-color: #27357C;
+  align-self: flex-start; /* Aligner le bouton "Tous les filtres" en haut */
 }
