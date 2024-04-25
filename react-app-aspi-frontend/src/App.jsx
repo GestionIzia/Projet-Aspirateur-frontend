@@ -74,7 +74,7 @@ function App() {
         const fetchJobOffers = async () => {
             try {
                 const wttjResponse = await axios.get(`${API_BASE_URL}/scrape-wttj`);
-                const wttjJobOffers = wttjResponse.data.slice(0, 50);
+                const wttjJobOffers = wttjResponse.data.slice(0, 5);
 
                 const linkedInResponse = await axios.get(`${API_BASE_URL}/scrape-linkedin`);
                 const linkedInJobOffers = linkedInResponse.data.slice(0, 50);
@@ -89,11 +89,9 @@ function App() {
                 const hwJobOffers = hwResponse.data.slice(0, 50);
 
                 const combinedJobOffers = [...wttjJobOffers, ...linkedInJobOffers, ...sgJobOffers, ...bpceJobOffers, ...hwJobOffers];
-
-                // Trier les cartes de la plus récente à la plus ancienne
                 const sortedOffers = sortCardsByDate(combinedJobOffers);
                 console.log({sortedOffers});
-                
+
                 setCardInfos(sortedOffers);
 
                 setIsLoading(false);

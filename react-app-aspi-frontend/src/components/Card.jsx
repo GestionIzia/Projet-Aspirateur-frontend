@@ -66,9 +66,7 @@ function Card({ openModal, cardInfo, isSelected }) {
           <div className='card-jobtitle-izia'>
             <h1 className='h1-izia'>{JobTitle}</h1> 
           </div>
-          <div className='card-companie-logo-izia'>
-            <img className='card-companie-logo-img-izia' src={getLogo()} alt="Company Logo"/>
-          </div>
+
         </div>
         <div className='card-body-izia'>
           <div className='card-companie-izia'>{CompanieName}</div>
@@ -89,6 +87,7 @@ function Card({ openModal, cardInfo, isSelected }) {
         </div>
       </div>
       <div className='card-margin-izia'>
+      <div className='card-items-izia'>
         <button className='btn-card-like-izia' onClick={toggleLike}>
           <img className='card-like-img-izia' src={getLikeImage()} alt={isLiked ? 'Liked' : 'Not Liked'}/>
         </button>
@@ -101,6 +100,10 @@ function Card({ openModal, cardInfo, isSelected }) {
           onMouseLeave={handleMouseLeave}
         />
         {showName && <span className="Name-tooltip"></span>}
+        </div>
+        <div className='card-companie-logo-izia'>
+            <img className='card-companie-logo-img-izia' src={getLogo()} alt="Company Logo"/>
+          </div>
       </div>
     </div>
   );
